@@ -14,4 +14,10 @@ feature "testing infrastructure" do
     sign_in_and_play
     expect(page).to have_content "60HP"
   end
+
+  scenario "attack player 2" do
+    sign_in_and_play
+    click_on "attack"
+    expect(page).to have_content "Chris attacked Francesco"
+  end
 end
