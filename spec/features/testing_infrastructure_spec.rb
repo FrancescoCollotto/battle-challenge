@@ -6,10 +6,12 @@ feature "testing infrastructure" do
   end
 
   scenario "fill the names and return them on the screen" do
-    visit('/')
-    fill_in :name_1, with: "Chris"
-    fill_in :name_2, with: "Francesco"
-    click_on "Submit"
+    sign_in_and_play
     expect(page).to have_content "Chris" && "Francesco"
+  end
+
+  scenario "See player 2 hitpoints" do
+    sign_in_and_play
+    expect(page).to have_content "60HP"
   end
 end
